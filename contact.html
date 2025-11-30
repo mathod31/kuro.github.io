@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Kuro</title>
+    <meta name="description" content="Contact the Kuro team for any questions or to join the waitlist.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Kuro</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#features" data-i18n="nav.features">Fonctionnalités</a>
+                <a href="index.html#how-it-works" data-i18n="nav.how">Comment ça marche</a>
+                <a href="contact.html" class="active" data-i18n="nav.contact">Contact</a>
+                <button class="lang-switch" aria-label="Change language">
+                    <span class="flag">🇬🇧</span>
+                    <span class="lang-label">English</span>
+                </button>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="index.html#features" data-i18n="nav.features">Fonctionnalités</a>
+        <a href="index.html#how-it-works" data-i18n="nav.how">Comment ça marche</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <button class="lang-switch mobile-lang">
+            <span class="flag">🇬🇧</span>
+            <span class="lang-label">English</span>
+        </button>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact-hero">
+        <div class="contact-bg">
+            <div class="grid-pattern"></div>
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <div class="contact-container">
+            <div class="contact-header">
+                <span class="section-tag" data-i18n="contact.tag">Contact</span>
+                <h1><span data-i18n="contact.title.1">Restons en</span> <span class="highlight" data-i18n="contact.title.highlight">contact</span></h1>
+                <p data-i18n="contact.subtitle">Une question ? Une suggestion ? Ou simplement envie d'être notifié du lancement ? Écrivez-nous !</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <div class="info-text">
+                            <h3 data-i18n="contact.email.label">Email</h3>
+                            <p data-i18n="contact.email.value">contact@curo-app.com</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                        <div class="info-text">
+                            <h3 data-i18n="contact.location.label">Localisation</h3>
+                            <p data-i18n="contact.location.value">Paris, France 🇫🇷</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12,6 12,12 16,14"/>
+                            </svg>
+                        </div>
+                        <div class="info-text">
+                            <h3 data-i18n="contact.response.label">Réponse</h3>
+                            <p data-i18n="contact.response.value">Sous 24-48h</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name" data-i18n="contact.form.name">Nom</label>
+                        <input type="text" id="name" name="name" data-i18n-placeholder="contact.form.name.placeholder" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-i18n="contact.form.email">Email</label>
+                        <input type="email" id="email" name="email" data-i18n-placeholder="contact.form.email.placeholder" placeholder="votre@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" data-i18n="contact.form.subject">Sujet</label>
+                        <select id="subject" name="subject" data-i18n-options required>
+                            <option value="" disabled selected data-i18n="contact.form.subject.placeholder">Choisir un sujet</option>
+                            <option value="waitlist" data-i18n="contact.form.subject.waitlist">Rejoindre la liste d'attente</option>
+                            <option value="question" data-i18n="contact.form.subject.question">Question générale</option>
+                            <option value="feature" data-i18n="contact.form.subject.feature">Suggestion de fonctionnalité</option>
+                            <option value="partnership" data-i18n="contact.form.subject.partnership">Partenariat</option>
+                            <option value="other" data-i18n="contact.form.subject.other">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-i18n="contact.form.message">Message</label>
+                        <textarea id="message" name="message" data-i18n-placeholder="contact.form.message.placeholder" placeholder="Votre message..." rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span data-i18n="contact.form.submit">Envoyer le message</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"/>
+                            <polygon points="22,2 15,22 11,13 2,9"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22,4 12,14.01 9,11.01"/>
+                </svg>
+            </div>
+            <h3 data-i18n="contact.modal.title">Message envoyé !</h3>
+            <p data-i18n="contact.modal.text">Merci pour votre message. Nous vous répondrons dans les plus brefs délais.</p>
+            <button class="btn btn-primary" onclick="closeModal()" data-i18n="contact.modal.close">Fermer</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="/" class="logo">
+                    <span class="logo-icon">◈</span>
+                    <span class="logo-text">Kuro</span>
+                </a>
+                <p data-i18n="footer.tagline">Votre majordome numérique personnel.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4 data-i18n="footer.nav">Navigation</h4>
+                    <a href="index.html#features" data-i18n="nav.features">Fonctionnalités</a>
+                    <a href="index.html#how-it-works" data-i18n="nav.how">Comment ça marche</a>
+                    <a href="contact.html" data-i18n="nav.contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.language">Langue</h4>
+                    <button class="lang-switch footer-lang">
+                        <span class="flag">🇬🇧</span>
+                        <span class="lang-label">English</span>
+                    </button>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.rights">© 2025 Kuro. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="i18n/translations.js"></script>
+    <script src="i18n/i18n.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
