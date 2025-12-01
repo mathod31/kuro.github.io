@@ -252,6 +252,225 @@ h3 {
     background: transparent;
 }
 
+/* ========================================
+   Legal Pages (Privacy, Delete Account)
+   ======================================== */
+
+.legal-page {
+    position: relative;
+    min-height: 100vh;
+    padding: calc(80px + var(--space-3xl)) var(--space-xl) var(--space-4xl);
+}
+
+.legal-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.legal-header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.legal-header h1 {
+    margin-bottom: var(--space-sm);
+}
+
+.legal-updated {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+.legal-card {
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+}
+
+.legal-intro {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xl);
+}
+
+.legal-section {
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.legal-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.legal-section h2 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-md);
+    color: var(--color-accent);
+}
+
+.legal-section p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.legal-section ul {
+    list-style: none;
+    margin: var(--space-md) 0;
+}
+
+.legal-section li {
+    color: var(--color-text-secondary);
+    padding: var(--space-sm) 0;
+    padding-left: var(--space-lg);
+    position: relative;
+}
+
+.legal-section li::before {
+    content: '•';
+    color: var(--color-accent);
+    position: absolute;
+    left: 0;
+}
+
+.legal-section li strong {
+    color: var(--color-text);
+}
+
+.text-link {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.text-link:hover {
+    color: var(--color-accent-light);
+}
+
+/* Delete Account Page Specific */
+.delete-method {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-xl);
+    margin: var(--space-lg) 0;
+}
+
+.method-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.method-icon {
+    font-size: 2rem;
+}
+
+.method-header h2 {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.method-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-sm) 0;
+}
+
+.step-num {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.step-item span:last-child {
+    color: var(--color-text-secondary);
+}
+
+.step-item strong {
+    color: var(--color-text);
+}
+
+.method-divider {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin: var(--space-lg) 0;
+}
+
+.method-divider::before,
+.method-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
+}
+
+.method-divider span {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.delete-method p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-lg);
+}
+
+.warning-box {
+    display: flex;
+    gap: var(--space-md);
+    background: rgba(255, 179, 71, 0.1);
+    border: 1px solid rgba(255, 179, 71, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    margin-top: var(--space-xl);
+}
+
+.warning-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.warning-content h3 {
+    color: var(--color-warning);
+    font-size: 1rem;
+    margin-bottom: var(--space-xs);
+}
+
+.warning-content p {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
 .mobile-menu-btn {
     display: none;
     flex-direction: column;

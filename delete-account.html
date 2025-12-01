@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supprimer mon compte - Kuro App</title>
+    <meta name="description" content="Comment supprimer votre compte et vos données de l'application Kuro.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Kuro</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#features" data-i18n="nav.features">Fonctionnalités</a>
+                <a href="index.html#how-it-works" data-i18n="nav.how">Comment ça marche</a>
+                <a href="contact.html" data-i18n="nav.contact">Contact</a>
+                <button class="lang-switch" aria-label="Change language">
+                    <span class="flag">🇬🇧</span>
+                    <span class="lang-label">English</span>
+                </button>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="index.html#features" data-i18n="nav.features">Fonctionnalités</a>
+        <a href="index.html#how-it-works" data-i18n="nav.how">Comment ça marche</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <button class="lang-switch mobile-lang">
+            <span class="flag">🇬🇧</span>
+            <span class="lang-label">English</span>
+        </button>
+    </div>
+
+    <!-- Delete Account Section -->
+    <section class="legal-page">
+        <div class="legal-bg">
+            <div class="grid-pattern"></div>
+            <div class="gradient-orb orb-1"></div>
+        </div>
+        <div class="legal-container">
+            <div class="legal-header">
+                <span class="section-tag" data-i18n="delete.tag">Kuro App - Données personnelles</span>
+                <h1 data-i18n="delete.title">Supprimer mon compte Kuro</h1>
+            </div>
+            
+            <div class="legal-content">
+                <div class="legal-card">
+                    <p class="legal-intro" data-i18n="delete.intro">
+                        En tant qu'utilisateur de l'application <strong>Kuro</strong>, vous pouvez à tout moment demander la suppression de votre compte et de toutes vos données personnelles. Voici les deux méthodes disponibles :
+                    </p>
+
+                    <div class="delete-method">
+                        <div class="method-header">
+                            <div class="method-icon">📱</div>
+                            <h2 data-i18n="delete.method1.title">Méthode 1 : Depuis l'application Kuro</h2>
+                        </div>
+                        <div class="method-steps">
+                            <div class="step-item">
+                                <span class="step-num">1</span>
+                                <span data-i18n="delete.method1.step1">Ouvrez l'application <strong>Kuro</strong> sur votre appareil</span>
+                            </div>
+                            <div class="step-item">
+                                <span class="step-num">2</span>
+                                <span data-i18n="delete.method1.step2">Appuyez sur le <strong>Menu</strong> (icône ☰)</span>
+                            </div>
+                            <div class="step-item">
+                                <span class="step-num">3</span>
+                                <span data-i18n="delete.method1.step3">Sélectionnez <strong>Réglages</strong></span>
+                            </div>
+                            <div class="step-item">
+                                <span class="step-num">4</span>
+                                <span data-i18n="delete.method1.step4">Appuyez sur <strong>Supprimer les données du compte</strong></span>
+                            </div>
+                            <div class="step-item">
+                                <span class="step-num">5</span>
+                                <span data-i18n="delete.method1.step5">Confirmez en appuyant sur <strong>Supprimer définitivement</strong></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-divider">
+                        <span data-i18n="delete.or">ou</span>
+                    </div>
+
+                    <div class="delete-method">
+                        <div class="method-header">
+                            <div class="method-icon">✉️</div>
+                            <h2 data-i18n="delete.method2.title">Méthode 2 : Nous contacter par email</h2>
+                        </div>
+                        <p data-i18n="delete.method2.desc">
+                            Vous pouvez également nous envoyer une demande de suppression via notre formulaire de contact ou par email. Veuillez inclure l'adresse email associée à votre compte Kuro. Nous traiterons votre demande dans un délai maximum de <strong>48 heures</strong>.
+                        </p>
+                        <a href="contact.html" class="btn btn-primary">
+                            <span data-i18n="delete.method2.button">Accéder au formulaire de contact</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Data Types Section -->
+                    <div class="legal-section" style="margin-top: var(--space-xl);">
+                        <h2 data-i18n="delete.data.title">Données supprimées</h2>
+                        <p data-i18n="delete.data.intro">Lors de la suppression de votre compte Kuro, les données suivantes seront <strong>définitivement supprimées</strong> :</p>
+                        <ul>
+                            <li data-i18n="delete.data.item1"><strong>Informations de compte</strong> : adresse email, nom, photo de profil</li>
+                            <li data-i18n="delete.data.item2"><strong>Objets enregistrés</strong> : tous vos objets, leurs photos et descriptions</li>
+                            <li data-i18n="delete.data.item3"><strong>Documents</strong> : factures, garanties, manuels téléchargés</li>
+                            <li data-i18n="delete.data.item4"><strong>Rappels</strong> : toutes les notifications et rappels programmés</li>
+                            <li data-i18n="delete.data.item5"><strong>Préférences</strong> : paramètres de l'application et historique</li>
+                        </ul>
+                    </div>
+
+                    <!-- Retained Data Section -->
+                    <div class="legal-section">
+                        <h2 data-i18n="delete.retained.title">Données conservées temporairement</h2>
+                        <p data-i18n="delete.retained.intro">Certaines données peuvent être conservées temporairement pour des raisons légales :</p>
+                        <ul>
+                            <li data-i18n="delete.retained.item1"><strong>Logs de transaction</strong> : conservés 30 jours pour la sécurité</li>
+                            <li data-i18n="delete.retained.item2"><strong>Données de facturation</strong> : conservées selon les obligations fiscales (jusqu'à 10 ans si applicable)</li>
+                        </ul>
+                        <p data-i18n="delete.retained.note">Ces données ne contiennent pas vos informations personnelles identifiables après anonymisation.</p>
+                    </div>
+
+                    <!-- Processing Time -->
+                    <div class="legal-section">
+                        <h2 data-i18n="delete.time.title">Délai de traitement</h2>
+                        <ul>
+                            <li data-i18n="delete.time.item1"><strong>Via l'application</strong> : suppression immédiate</li>
+                            <li data-i18n="delete.time.item2"><strong>Via formulaire de contact</strong> : sous 48 heures ouvrées</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        <div class="warning-icon">⚠️</div>
+                        <div class="warning-content">
+                            <h3 data-i18n="delete.warning.title">Attention - Action irréversible</h3>
+                            <p data-i18n="delete.warning.text">
+                                La suppression de votre compte Kuro est <strong>définitive et irréversible</strong>. Une fois supprimées, vos données ne pourront pas être récupérées. Nous vous conseillons d'exporter vos données avant de procéder à la suppression.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="/" class="logo">
+                    <span class="logo-icon">◈</span>
+                    <span class="logo-text">Kuro</span>
+                </a>
+                <p data-i18n="footer.tagline">Votre majordome numérique personnel.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4 data-i18n="footer.nav">Navigation</h4>
+                    <a href="index.html#features" data-i18n="nav.features">Fonctionnalités</a>
+                    <a href="index.html#how-it-works" data-i18n="nav.how">Comment ça marche</a>
+                    <a href="contact.html" data-i18n="nav.contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.legal">Légal</h4>
+                    <a href="privacy.html" data-i18n="footer.privacy">Confidentialité</a>
+                    <a href="delete-account.html" data-i18n="footer.delete">Supprimer mon compte</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.rights">© 2025 Kuro. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="i18n/translations.js"></script>
+    <script src="i18n/i18n.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
