@@ -111,17 +111,33 @@ function initContactForm() {
             Envoi en cours...
         `;
         
-        // Simulate form submission (replace with actual API call)
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        
-        // Show success modal
-        const modal = document.getElementById('successModal');
-        if (modal) {
-            modal.classList.add('active');
+        try {
+            // Send to Formspree (or other service)
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                // Show success modal
+                const modal = document.getElementById('successModal');
+                if (modal) {
+                    modal.classList.add('active');
+                }
+                // Reset form
+                form.reset();
+            } else {
+                alert('Erreur lors de l\'envoi. Veuillez réessayer.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Erreur lors de l\'envoi. Veuillez réessayer.');
         }
         
-        // Reset form
-        form.reset();
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
     });
