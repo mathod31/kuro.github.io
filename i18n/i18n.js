@@ -35,11 +35,12 @@ class I18n {
 
   // Update all elements with data-i18n attribute
   updatePage() {
-    // Update text content
+    // Update text/html content
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       const translation = this.t(key);
-      el.textContent = translation;
+      // Use innerHTML to support <strong>, <em>, etc.
+      el.innerHTML = translation;
       // Hide element if translation is empty
       el.style.display = translation ? '' : 'none';
     });
