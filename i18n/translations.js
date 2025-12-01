@@ -81,7 +81,7 @@ const translations = {
     "contact.email.label": "Email",
     "contact.email.value": "contact@kuro-app.com",
     "contact.location.label": "Localisation",
-    "contact.location.value": "Paris, France 🇫🇷",
+    "contact.location.value": "Partout dans le monde 🌍",
     "contact.response.label": "Réponse",
     "contact.response.value": "Sous 24-48h",
     
@@ -187,7 +187,7 @@ const translations = {
     "contact.email.label": "Email",
     "contact.email.value": "contact@kuro-app.com",
     "contact.location.label": "Location",
-    "contact.location.value": "Paris, France 🇫🇷",
+    "contact.location.value": "Around the world 🌍",
     "contact.response.label": "Response time",
     "contact.response.value": "Within 24-48h",
     
