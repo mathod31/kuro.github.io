@@ -1,14 +1,38 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="no-js i18n-loading">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html.i18n-loading [data-i18n],
+        html.i18n-loading .lang-switch {
+            visibility: hidden;
+        }
+    </style>
+    <script>
+        (function () {
+            var root = document.documentElement;
+            root.classList.remove('no-js');
+            root.classList.add('js');
+            try {
+                var stored = localStorage.getItem('kuro-lang');
+                var browser = (navigator.language || navigator.userLanguage || '').toLowerCase();
+                var lang = (stored || browser || '').toLowerCase();
+                if (!lang || lang.indexOf('fr') === 0) {
+                    root.classList.remove('i18n-loading');
+                }
+            } catch (e) {
+                // Ignore storage errors
+                root.classList.remove('i18n-loading');
+            }
+        })();
+    </script>
     <title>Kuro - Your Digital Butler | Votre Majordome Numérique</title>
     <meta name="description" content="Kuro organizes your daily life by centralizing your documents, objects, and warranties. Never miss an important deadline again.">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Manrope:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
@@ -22,10 +46,14 @@
                 <a href="#features" data-i18n="nav.features">Fonctionnalités</a>
                 <a href="#how-it-works" data-i18n="nav.how">Comment ça marche</a>
                 <a href="contact.html" data-i18n="nav.contact">Contact</a>
-                <button class="lang-switch" aria-label="Change language">
-                    <span class="flag">🇬🇧</span>
-                    <span class="lang-label">English</span>
-                </button>
+                <div class="lang-picker">
+                    <button class="lang-switch" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Choose language">
+                        <span class="flag">🇫🇷</span>
+                        <span class="lang-label">Français</span>
+                        <span class="lang-caret" aria-hidden="true">▾</span>
+                    </button>
+                    <div class="lang-menu" role="listbox" aria-label="Choose language"></div>
+                </div>
             </div>
             <button class="mobile-menu-btn" aria-label="Menu">
                 <span></span>
@@ -40,10 +68,14 @@
         <a href="#features" data-i18n="nav.features">Fonctionnalités</a>
         <a href="#how-it-works" data-i18n="nav.how">Comment ça marche</a>
         <a href="contact.html" data-i18n="nav.contact">Contact</a>
-        <button class="lang-switch mobile-lang">
-            <span class="flag">🇬🇧</span>
-            <span class="lang-label">English</span>
-        </button>
+        <div class="lang-picker mobile-lang">
+            <button class="lang-switch" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Choose language">
+                <span class="flag">🇫🇷</span>
+                <span class="lang-label">Français</span>
+                <span class="lang-caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="lang-menu" role="listbox" aria-label="Choose language"></div>
+        </div>
     </div>
 
     <!-- Hero Section -->
@@ -77,38 +109,15 @@
             </div>
         </div>
         <div class="hero-visual">
-            <div class="device-frame">
-                <div class="device-screen">
-                    <div class="app-preview">
-                        <div class="preview-header">
-                            <div class="preview-title" data-i18n="preview.title">Mes Objets</div>
-                            <div class="preview-count" data-i18n="preview.count">12 éléments</div>
-                        </div>
-                        <div class="preview-card card-1">
-                            <div class="card-icon">📱</div>
-                            <div class="card-info">
-                                <div class="card-name" data-i18n="preview.item1.name">iPhone 15 Pro</div>
-                                <div class="card-meta" data-i18n="preview.item1.meta">Garantie expire dans 8 mois</div>
-                            </div>
-                            <div class="card-status status-ok"></div>
-                        </div>
-                        <div class="preview-card card-2">
-                            <div class="card-icon">🖥️</div>
-                            <div class="card-info">
-                                <div class="card-name" data-i18n="preview.item2.name">MacBook Pro M3</div>
-                                <div class="card-meta" data-i18n="preview.item2.meta">Garantie expire dans 2 ans</div>
-                            </div>
-                            <div class="card-status status-ok"></div>
-                        </div>
-                        <div class="preview-card card-3">
-                            <div class="card-icon">🔧</div>
-                            <div class="card-info">
-                                <div class="card-name" data-i18n="preview.item3.name">Lave-vaisselle Bosch</div>
-                                <div class="card-meta" data-i18n="preview.item3.meta">⚠️ Garantie expire bientôt</div>
-                            </div>
-                            <div class="card-status status-warning"></div>
-                        </div>
-                    </div>
+            <div class="phone-stack">
+                <div class="phone phone-left">
+                    <img src="/screenshots/ios/item.png" alt="Apercu d'un objet Kuro" loading="lazy" decoding="async">
+                </div>
+                <div class="phone phone-center">
+                    <img src="/screenshots/ios/dashboard-main.png" alt="Aperçu du tableau de bord Kuro" loading="eager" decoding="async" fetchpriority="high">
+                </div>
+                <div class="phone phone-right">
+                    <img src="/screenshots/ios/reminders-main.png" alt="Aperçu des rappels Kuro" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -265,10 +274,14 @@
                 </div>
                 <div class="footer-col">
                     <h4 data-i18n="footer.language">Langue</h4>
-                    <button class="lang-switch footer-lang">
-                        <span class="flag">🇬🇧</span>
-                        <span class="lang-label">English</span>
-                    </button>
+                    <div class="lang-picker footer-lang">
+                        <button class="lang-switch" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Choose language">
+                            <span class="flag">🇫🇷</span>
+                            <span class="lang-label">Français</span>
+                            <span class="lang-caret" aria-hidden="true">▾</span>
+                        </button>
+                        <div class="lang-menu" role="listbox" aria-label="Choose language"></div>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -277,6 +290,7 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/i18next@23.10.1/dist/umd/i18next.min.js"></script>
     <script src="i18n/translations.js"></script>
     <script src="i18n/i18n.js"></script>
     <script src="script.js"></script>

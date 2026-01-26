@@ -2,13 +2,27 @@
 // KURO - Landing Page JavaScript
 // ========================================
 
-document.addEventListener('DOMContentLoaded', () => {
+function getI18nText(key, fallback) {
+    if (window.i18n && typeof window.i18n.t === 'function') {
+        const value = window.i18n.t(key, { defaultValue: fallback });
+        return value || fallback;
+    }
+    return fallback;
+}
+
+const initPageScripts = () => {
     initMobileMenu();
     initSmoothScroll();
     initNavbarScroll();
     initContactForm();
     initScrollAnimations();
-});
+};
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPageScripts);
+} else {
+    initPageScripts();
+}
 
 // Mobile Menu Toggle
 function initMobileMenu() {
@@ -73,20 +87,13 @@ function initSmoothScroll() {
 function initNavbarScroll() {
     const navbar = document.querySelector('.navbar');
     if (!navbar) return;
-    
-    let lastScroll = 0;
-    
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 50) {
-            navbar.style.background = 'rgba(10, 13, 20, 0.95)';
-        } else {
-            navbar.style.background = 'rgba(10, 13, 20, 0.8)';
-        }
-        
-        lastScroll = currentScroll;
-    });
+
+    const handleScroll = () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 40);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
 }
 
 // Contact Form Handling
@@ -102,13 +109,14 @@ function initContactForm() {
         
         // Loading state
         submitBtn.disabled = true;
+        const sendingLabel = getI18nText('contact.form.sending', 'Envoi en cours...');
         submitBtn.innerHTML = `
             <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="10" stroke-dasharray="32" stroke-dashoffset="32">
                     <animate attributeName="stroke-dashoffset" values="32;0" dur="1s" repeatCount="indefinite"/>
                 </circle>
             </svg>
-            Envoi en cours...
+            ${sendingLabel}
         `;
         
         try {
@@ -131,11 +139,19 @@ function initContactForm() {
                 // Reset form
                 form.reset();
             } else {
-                alert('Erreur lors de l\'envoi. Veuillez réessayer.');
+                const errorMessage = getI18nText(
+                    'contact.form.error',
+                    'Erreur lors de l\'envoi. Veuillez réessayer.'
+                );
+                alert(errorMessage);
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('Erreur lors de l\'envoi. Veuillez réessayer.');
+            const errorMessage = getI18nText(
+                'contact.form.error',
+                'Erreur lors de l\'envoi. Veuillez réessayer.'
+            );
+            alert(errorMessage);
         }
         
         submitBtn.disabled = false;
@@ -176,36 +192,44 @@ function initScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                const delay = parseFloat(entry.target.dataset.revealDelay || '0');
                 entry.target.classList.add('animate-in');
+                requestAnimationFrame(() => {
+                    entry.target.style.removeProperty('opacity');
+                    entry.target.style.removeProperty('transform');
+                });
+                window.setTimeout(() => {
+                    entry.target.style.removeProperty('transition');
+                }, (delay + 0.7) * 1000 + 50);
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
-    // Observe feature cards
-    document.querySelectorAll('.feature-card').forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-        observer.observe(card);
-    });
-    
-    // Observe steps
-    document.querySelectorAll('.step').forEach((step, index) => {
-        step.style.opacity = '0';
-        step.style.transform = 'translateX(-30px)';
-        step.style.transition = `opacity 0.6s ease ${index * 0.15}s, transform 0.6s ease ${index * 0.15}s`;
-        observer.observe(step);
-    });
+    const revealOnScroll = (nodeList, { axis = 'Y', distance = 24, stagger = 0.1 } = {}) => {
+        const elements = Array.from(nodeList);
+        elements.forEach((element, index) => {
+            element.style.opacity = '0';
+            element.style.transform = `translate${axis}(${distance}px)`;
+            const delay = index * stagger;
+            element.style.transition = `opacity 0.7s ease ${delay}s, transform 0.7s ease ${delay}s`;
+            element.dataset.revealDelay = delay;
+            observer.observe(element);
+        });
+    };
+
+    revealOnScroll(document.querySelectorAll('.feature-card'), { axis: 'Y', distance: 28, stagger: 0.1 });
+    revealOnScroll(document.querySelectorAll('.step'), { axis: 'X', distance: -28, stagger: 0.12 });
+    revealOnScroll(document.querySelectorAll('.info-card'), { axis: 'Y', distance: 24, stagger: 0.08 });
+    revealOnScroll(document.querySelectorAll('.contact-form, .cta-container, .legal-card'), { axis: 'Y', distance: 24, stagger: 0.1 });
 }
 
 // Add animate-in class styles dynamically
 const style = document.createElement('style');
 style.textContent = `
     .animate-in {
-        opacity: 1 !important;
-        transform: translate(0) !important;
+        opacity: 1;
+        transform: translate(0);
     }
 `;
 document.head.appendChild(style);
-
