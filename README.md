@@ -35,14 +35,24 @@ This site is optimized for deployment on **Vercel**.
 ### Structure
 
 ```
-├── index.html          # Page d'accueil | Home page
-├── contact.html        # Page de contact | Contact page
-├── styles.css          # Styles CSS
-├── script.js           # Interactions JavaScript
-├── i18n/
-│   ├── translations.js # Traductions FR/EN
-│   └── i18n.js         # Système de traduction
-└── README.md           # Ce fichier | This file
+├── app/
+│   ├── layout.jsx            # Layout Next.js + Analytics
+│   ├── page.jsx              # Home
+│   ├── contact/page.jsx      # Contact
+│   ├── privacy/page.jsx      # Confidentialité
+│   ├── delete-account/page.jsx # Suppression de compte
+│   ├── globals.css           # Styles globaux
+│   └── lib/html.js           # Extraction du contenu HTML source
+├── public/
+│   ├── script.js             # Interactions JavaScript
+│   └── i18n/
+│       ├── translations.js   # Traductions FR/EN
+│       └── i18n.js           # Système de traduction
+├── index.html                # Sources HTML (contenu réutilisé)
+├── contact.html
+├── privacy.html
+├── delete-account.html
+└── README.md                 # Ce fichier | This file
 ```
 
 ## 🛠️ Développement Local | Local Development
@@ -52,14 +62,14 @@ This site is optimized for deployment on **Vercel**.
 git clone https://github.com/kuro/kuro.github.io.git
 cd kuro.github.io
 
-# Lancer un serveur local (Python)
-python3 -m http.server 8000
+# Installer les dépendances
+npm install
 
-# Ou avec Node.js (npx)
-npx serve
+# Lancer le serveur de dev
+npm run dev
 ```
 
-Puis ouvrir http://localhost:8000 dans votre navigateur.
+Puis ouvrir http://localhost:3000 dans votre navigateur.
 
 ## 📬 Contact
 
