@@ -157,7 +157,7 @@ const translations = {
       // Privacy Page
       "privacy.tag": "Légal",
       "privacy.title": "Politique de confidentialité",
-      "privacy.updated": "Dernière mise à jour : Décembre 2025",
+      "privacy.updated": "Dernière mise à jour : Février 2026",
       "privacy.intro.title": "Introduction",
       "privacy.intro.text": "Chez Kuro, nous accordons une grande importance à la protection de vos données personnelles. Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos informations lorsque vous utilisez notre application.",
       "privacy.collected.title": "Données collectées",
@@ -372,7 +372,7 @@ const translations = {
       // Privacy Page
       "privacy.tag": "Legal",
       "privacy.title": "Privacy Policy",
-      "privacy.updated": "Last updated: December 2025",
+      "privacy.updated": "Last updated: February 2026",
       "privacy.intro.title": "Introduction",
       "privacy.intro.text": "At Kuro, we place great importance on protecting your personal data. This privacy policy explains how we collect, use, and protect your information when you use our application.",
       "privacy.collected.title": "Data collected",
@@ -587,7 +587,7 @@ const translations = {
       // Privacy Page
       "privacy.tag": "Legal",
       "privacy.title": "Política de privacidad",
-      "privacy.updated": "Última actualización: diciembre de 2025",
+      "privacy.updated": "Última actualización: febrero de 2026",
       "privacy.intro.title": "Introducción",
       "privacy.intro.text": "En Kuro, damos gran importancia a la protección de tus datos personales. Esta política de privacidad explica cómo recopilamos, usamos y protegemos tu información cuando utilizas nuestra aplicación.",
       "privacy.collected.title": "Datos recopilados",
@@ -802,7 +802,7 @@ const translations = {
       // Privacy Page
       "privacy.tag": "Rechtliches",
       "privacy.title": "Datenschutzerklärung",
-      "privacy.updated": "Zuletzt aktualisiert: Dezember 2025",
+      "privacy.updated": "Zuletzt aktualisiert: Februar 2026",
       "privacy.intro.title": "Einleitung",
       "privacy.intro.text": "Bei Kuro legen wir großen Wert auf den Schutz deiner personenbezogenen Daten. Diese Datenschutzerklärung erklärt, wie wir deine Informationen sammeln, verwenden und schützen, wenn du unsere App nutzt.",
       "privacy.collected.title": "Erhobene Daten",

@@ -421,6 +421,181 @@ h3 {
     padding: calc(80px + var(--space-3xl)) var(--space-xl) var(--space-4xl);
 }
 
+.legal-page--formal {
+    background: #ffffff;
+    color: #111111;
+}
+
+.legal-page--formal .legal-bg {
+    display: none;
+}
+
+.legal-page--formal .legal-container {
+    max-width: 860px;
+}
+
+.legal-page--formal .legal-header {
+    text-align: left;
+    margin-bottom: var(--space-xl);
+}
+
+.legal-page--formal .legal-header h1 {
+    font-family: var(--font-body);
+    font-size: 2rem;
+    letter-spacing: -0.01em;
+}
+
+.legal-page--formal .section-tag {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #6b7280;
+    padding: 0;
+    margin-bottom: var(--space-sm);
+    letter-spacing: 0.12em;
+}
+
+.legal-page--formal .legal-updated {
+    color: #6b7280;
+}
+
+.legal-page--formal .legal-card {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+}
+
+.legal-page--formal .legal-intro {
+    color: #374151;
+    font-size: 1rem;
+}
+
+.legal-page--formal .legal-content {
+    counter-reset: section;
+}
+
+.legal-page--formal .legal-section {
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    counter-increment: section;
+    counter-reset: item;
+}
+
+.legal-page--formal .legal-section h2 {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: #111111;
+    margin-bottom: var(--space-sm);
+}
+
+.legal-page--formal .legal-section h2::before {
+    content: counter(section) ". ";
+    color: #111111;
+}
+
+.legal-page--formal .legal-section p {
+    color: #374151;
+}
+
+.legal-page--formal .legal-section ul {
+    list-style: none;
+    margin: var(--space-sm) 0;
+    padding-left: 0;
+}
+
+.legal-page--formal .legal-section li {
+    color: #374151;
+    padding-left: 2.5rem;
+}
+
+.legal-page--formal .legal-section li::before {
+    content: counter(section) "." counter(item) " ";
+    counter-increment: item;
+    color: #111111;
+    font-weight: 600;
+}
+
+.legal-page--formal .text-link {
+    color: #111111;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.legal-page--formal .btn-primary {
+    background: #111111;
+    border-color: #111111;
+    box-shadow: none;
+}
+
+.legal-page--formal .btn-primary:hover {
+    background: #000000;
+    box-shadow: none;
+    transform: none;
+}
+
+.legal-page--formal .delete-method {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0 0 var(--space-lg);
+}
+
+.legal-page--formal .method-icon {
+    display: none;
+}
+
+.legal-page--formal .method-header {
+    margin-bottom: var(--space-sm);
+}
+
+.legal-page--formal .method-header h2 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.legal-page--formal .step-item {
+    align-items: flex-start;
+    gap: var(--space-sm);
+}
+
+.legal-page--formal .step-num {
+    width: auto;
+    height: auto;
+    background: none;
+    color: #111111;
+    border-radius: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: none;
+}
+
+.legal-page--formal .method-divider {
+    display: none;
+}
+
+.legal-page--formal .method-divider::before,
+.legal-page--formal .method-divider::after {
+    background: #e5e7eb;
+}
+
+.legal-page--formal .warning-box {
+    background: transparent;
+    border-color: #e5e7eb;
+}
+
+.legal-page--formal .warning-icon {
+    display: none;
+}
+
+.legal-page--formal .warning-content h3 {
+    color: #111111;
+    font-weight: 600;
+}
+
 .legal-bg {
     position: absolute;
     inset: 0;
