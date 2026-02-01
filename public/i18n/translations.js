@@ -80,7 +80,7 @@ const translations = {
       "contact.subtitle": "Une question ? Une suggestion ? Ou simplement envie d'être notifié du lancement ? Écrivez-nous !",
 
       "contact.email.label": "Email",
-      "contact.email.value": "contact@kuro-app.com",
+      "contact.email.value": "mykuro.app@gmail.com",
       "contact.location.label": "Localisation",
       "contact.location.value": "Partout dans le monde 🌍",
       "contact.response.label": "Réponse",
@@ -265,7 +265,7 @@ const translations = {
       "contact.subtitle": "Have a question? A suggestion? Or simply want to be notified at launch? Write to us!",
 
       "contact.email.label": "Email",
-      "contact.email.value": "contact@kuro-app.com",
+      "contact.email.value": "mykuro.app@gmail.com",
       "contact.location.label": "Location",
       "contact.location.value": "Around the world 🌍",
       "contact.response.label": "Response time",
@@ -450,7 +450,7 @@ const translations = {
       "contact.subtitle": "¿Tienes una pregunta? ¿Una sugerencia? ¿O simplemente quieres que te avisemos del lanzamiento? ¡Escríbenos!",
 
       "contact.email.label": "Correo electrónico",
-      "contact.email.value": "contact@kuro-app.com",
+      "contact.email.value": "mykuro.app@gmail.com",
       "contact.location.label": "Ubicación",
       "contact.location.value": "En todo el mundo 🌍",
       "contact.response.label": "Tiempo de respuesta",
@@ -635,7 +635,7 @@ const translations = {
       "contact.subtitle": "Eine Frage? Ein Vorschlag? Oder möchtest du einfach zum Start benachrichtigt werden? Schreib uns!",
 
       "contact.email.label": "E-Mail",
-      "contact.email.value": "contact@kuro-app.com",
+      "contact.email.value": "mykuro.app@gmail.com",
       "contact.location.label": "Standort",
       "contact.location.value": "Weltweit 🌍",
       "contact.response.label": "Antwortzeit",
