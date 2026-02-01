@@ -9,11 +9,11 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className="no-js i18n-loading">
+    <html lang="en" className="no-js i18n-loading">
       <head>
         <style>{`html.i18n-loading [data-i18n],html.i18n-loading .lang-switch{visibility:hidden;}`}</style>
         <Script id="i18n-class" strategy="beforeInteractive">
-          {`(function(){var root=document.documentElement;root.classList.remove('no-js');root.classList.add('js');try{var stored=localStorage.getItem('kuro-lang');var browser=(navigator.language||navigator.userLanguage||'').toLowerCase();var lang=(stored||browser||'').toLowerCase();if(!lang||lang.indexOf('fr')===0){root.classList.remove('i18n-loading');}}catch(e){root.classList.remove('i18n-loading');}})();`}
+          {`(function(){var root=document.documentElement;root.classList.remove('no-js');root.classList.add('js');try{var stored=localStorage.getItem('kuro-lang');var browser=(navigator.language||navigator.userLanguage||'').toLowerCase();var lang=(stored||browser||'').toLowerCase();if(!lang||lang.indexOf('en')===0){root.classList.remove('i18n-loading');}}catch(e){root.classList.remove('i18n-loading');}})();`}
         </Script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

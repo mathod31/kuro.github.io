@@ -21,7 +21,7 @@
     de: { label: 'Deutsch', flag: '🇩🇪' }
   };
   const SUPPORTED_LANGS = Object.keys(LANGUAGE_METADATA);
-  const DEFAULT_LANG = 'fr';
+  const DEFAULT_LANG = 'en';
 
   const getStoredLang = () => {
     try {
@@ -45,6 +45,17 @@
     return match || DEFAULT_LANG;
   };
 
+  const getLangFromPath = () => {
+    if (typeof window === 'undefined') {
+      return null;
+    }
+    const rawPath = (window.location && window.location.pathname) || '';
+    const path = rawPath.toLowerCase().replace(/\/$/, '');
+    const segments = path.split('/');
+    const candidate = segments[1];
+    return SUPPORTED_LANGS.includes(candidate) ? candidate : null;
+  };
+
   const getTranslations = () => {
     if (typeof window !== 'undefined' && window.kuroTranslations) {
       return window.kuroTranslations;
@@ -59,6 +70,58 @@
 
   const translateKey = (key) => {
     return i18next.t(key, { defaultValue: '' });
+  };
+
+  const getPageKey = () => {
+    if (typeof window === 'undefined') {
+      return null;
+    }
+    const rawPath = (window.location && window.location.pathname) || '';
+    const path = rawPath.toLowerCase().replace(/\/$/, '');
+    const segments = path.split('/');
+    const candidate = segments[1];
+
+    if (
+      !path ||
+      path === '/' ||
+      (SUPPORTED_LANGS.includes(candidate) && path === `/${candidate}`)
+    ) {
+      return 'home';
+    }
+    if (path.includes('privacy')) {
+      return 'privacy';
+    }
+    if (path.includes('delete-account')) {
+      return 'delete';
+    }
+    if (path.includes('contact')) {
+      return 'contact';
+    }
+    return null;
+  };
+
+  const updateMetadata = () => {
+    if (typeof document === 'undefined') {
+      return;
+    }
+    const pageKey = getPageKey();
+    if (!pageKey) {
+      return;
+    }
+    const title = translateKey(`meta.${pageKey}.title`);
+    if (title) {
+      document.title = title;
+    }
+    const description = translateKey(`meta.${pageKey}.description`);
+    if (description) {
+      let meta = document.querySelector('meta[name="description"]');
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute('name', 'description');
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute('content', description);
+    }
   };
 
   const updatePage = () => {
@@ -99,6 +162,8 @@
         el.setAttribute('aria-label', translation);
       }
     });
+
+    updateMetadata();
   };
 
   const buildLangOptions = (menu) => {
@@ -162,16 +227,28 @@
   };
 
   const setLang = (lang) => {
-    if (!SUPPORTED_LANGS.includes(lang) || !i18next.isInitialized) {
+    if (!SUPPORTED_LANGS.includes(lang)) {
       return;
     }
 
-    i18next.changeLanguage(lang).then(() => {
-      setStoredLang(lang);
-      updatePage();
-      markReady();
-      updateLangPickers();
-    });
+    setStoredLang(lang);
+
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const { pathname, search, hash } = window.location;
+    const normalized = pathname.toLowerCase().replace(/\/$/, '');
+    const segments = normalized.split('/');
+
+    if (segments.length > 1 && SUPPORTED_LANGS.includes(segments[1])) {
+      segments[1] = lang;
+    } else {
+      segments.splice(1, 0, lang);
+    }
+
+    const nextPath = segments.join('/') || `/${lang}`;
+    window.location.assign(`${nextPath}${search}${hash}`);
   };
 
   const attachPickers = () => {
@@ -236,12 +313,13 @@
       return;
     }
 
-    const initialLang = getStoredLang() || detectBrowserLang();
+    const initialLang = getLangFromPath() || getStoredLang() || detectBrowserLang();
+    setStoredLang(initialLang);
 
     i18next
       .init({
         lng: initialLang,
-        fallbackLng: 'en',
+        fallbackLng: DEFAULT_LANG,
         resources,
         interpolation: { escapeValue: false },
         returnNull: false,
