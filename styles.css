@@ -205,8 +205,21 @@ h3 {
 }
 
 .logo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    flex: 0 0 auto;
     color: var(--color-accent);
     font-size: 1.75rem;
+}
+
+.logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 @supports (-webkit-background-clip: text) {

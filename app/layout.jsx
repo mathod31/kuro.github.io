@@ -15,6 +15,8 @@ export default function RootLayout({ children }) {
         <Script id="i18n-class" strategy="beforeInteractive">
           {`(function(){var root=document.documentElement;root.classList.remove('no-js');root.classList.add('js');try{var stored=localStorage.getItem('kuro-lang');var browser=(navigator.language||navigator.userLanguage||'').toLowerCase();var lang=(stored||browser||'').toLowerCase();if(!lang||lang.indexOf('en')===0){root.classList.remove('i18n-loading');}}catch(e){root.classList.remove('i18n-loading');}})();`}
         </Script>
+        <link rel="icon" href="/assets/icon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/assets/icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
